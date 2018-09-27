@@ -7,31 +7,45 @@ import java.util.Random;
 
 public class StudentAssignments {
 	public static void main(String args[]) {
+
+		Random random = new Random();
 		
+		final int minVal = 0;
+		final int maxVal = 100;
 		int randNum;
+		int average;
+		int sum;
+		sum = 0;
+		average = 0;
 		
-		randNum = numGen();
 		
-		int firstarray[][]= {{randNum,randNum,randNum,randNum},{4,5,6,7}};
-		
-		System.out.println("Assignments");
-		display(firstarray);
-		
-	}
+		int[][] students = new int[4][6]; //Making the field 4x6
 
-	public static int numGen() {	
-		int randNum = (int) ((Math.random() * ((100 - 1) + 1)) + 1);
-		return randNum;
-	}
+	    for (int i = 0; i < 4; i++) {
+	        for (int j = 0; j < 6; j++) { 
+	        	students[i][j] = minVal + random.nextInt(maxVal- minVal+ 1);
+	        	average ++;
+	        	
+	        }
+	    }
+	    
+	    
 
-
-	public static void display(int x[][]) {
-		for(int row = 0; row < x.length; row++) {
-			for (int column = 0; column < x[row].length; column++) {
-				System.out.print(x[row][column] + "\t" );
-			}
-			System.out.println();
+	
+	
+	for(int row = 0; row < students.length; row++) {
+		for (int column = 0; column < students[row].length; column++) {
+			System.out.print(students[row][column] + "\t" );
+			sum = sum + String.parse(students[row][column]);
 		}
+		System.out.println();
+	
 	}
 	
+    System.out.println(average);
+	
+		
+
+		
+	}
 }
